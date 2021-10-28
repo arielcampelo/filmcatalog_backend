@@ -40,14 +40,14 @@ Route::delete('film/{id}', [FilmController::class,'destroy']);
 // List actors
 Route::get('actors', [ActorController::class, 'index']);
 
-// List single film
+// List single actor
 Route::get('actor/{id}', [ActorController::class, 'show']);
 
-// Create new film
+// Create new actor
 Route::post('actor', [ActorController::class, 'store']);
 
-// Update film
+// Update actor
 Route::put('actor/{id}', [ActorController::class, 'update']);
 
-// Delete film
+// Delete actor
 Route::delete('actor/{id}', [ActorController::class,'destroy']);
