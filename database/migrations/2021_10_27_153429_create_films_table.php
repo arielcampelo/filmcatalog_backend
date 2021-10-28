@@ -19,6 +19,9 @@ class CreateFilmsTable extends Migration
             $table->string('title','100');
             $table->string('author','50');
             $table->integer('year');
+            $table->float('grade',8,2);
+
+
         });
     }
 

@@ -22,6 +22,7 @@ class Film extends JsonResource
             'title' => $this->title,
             'author' => $this->author,
             'year' => $this->year,
+            'grade' => $this->grade,
           ];
     }
 }

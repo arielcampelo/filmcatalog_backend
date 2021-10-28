@@ -45,6 +45,7 @@ class FilmController extends Controller
         $film->title = $request->input('title');
         $film->author = $request->input('author');
         $film->year = $request->input('year');
+        $film->grade = $request->input('grade');
 
         if($film->save() ){
         return new FilmResource($film);
@@ -89,6 +90,7 @@ class FilmController extends Controller
         $film->title = $request->input('title');
         $film->author = $request->input('author');
         $film->year = $request->input('year');
+        $film->grade = $request->input('grade');
 
         if( $film->save() ){
             return new FilmResource($film);
