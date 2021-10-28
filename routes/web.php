@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FilmController;
 
-Route::get('/',[FilmController::class,'index']);
+Route::get('/',[HomeController::class,'index']);
