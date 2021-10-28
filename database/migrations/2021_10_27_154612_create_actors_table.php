@@ -14,11 +14,15 @@ class CreateActorsTable extends Migration
     public function up()
     {
         Schema::create('actors', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->timestamps();
+            $table->integer('film_id')->unsigned();
             $table->string('name','50');
-            $table->integer('film');
         });
+
+        Schema::table('actors', function (Blueprint $table) {
+            $table->foreign('film_id')->references('id')->on('films')->onDelete('cascade');
+         });
     }
 
     /**
