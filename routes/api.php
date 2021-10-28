@@ -43,6 +43,9 @@ Route::get('actors', [ActorController::class, 'index']);
 // List single actor
 Route::get('actor/{id}', [ActorController::class, 'show']);
 
+// List actors by film_id
+Route::get('filmactors/{id}', [ActorController::class, 'showactors']);
+
 // Create new actor
 Route::post('actor', [ActorController::class, 'store']);
 

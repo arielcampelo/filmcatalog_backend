@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Actor as Actor;
 use App\Http\Resources\Actor as ActorResource;
 
+use Illuminate\Support\Facades\DB;
+
 
 class ActorController extends Controller
 {
@@ -62,6 +64,15 @@ class ActorController extends Controller
         $actor= Actor::findOrFail( $id );
         return new ActorResource( $actor );
     }
+
+    public function showactors($id)
+    {
+        $actors = DB::table('actors')->where('film_id', '=', $id)->get();
+        return ActorResource::collection($actors);
+    }
+
+
+
 
     /**
      * Show the form for editing the specified resource.
