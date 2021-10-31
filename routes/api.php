@@ -24,6 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // List films
 Route::get('films', [FilmController::class, 'index']);
 
+// List all films with actors
+Route::get('filmswithcast', [FilmController::class, 'showall']);
+
 // List single film
 Route::get('film/{id}', [FilmController::class, 'show']);
 

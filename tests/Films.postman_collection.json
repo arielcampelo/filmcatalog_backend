@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4ea9d8d9-54c4-4763-ac92-ba751c5ff7ef",
+		"_postman_id": "51e5f255-5a7f-4c47-bd04-1545584a94a0",
 		"name": "Films",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -432,6 +432,42 @@
 					"path": [
 						"api",
 						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all films with cast",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/filmswithcast",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"filmswithcast"
 					]
 				}
 			},
