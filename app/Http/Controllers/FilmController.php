@@ -20,14 +20,14 @@ class FilmController extends Controller
     public function index()
     {
         //
-        $films = Film::paginate(2);
+        $films = Film::paginate(5);
         return FilmResource::collection($films);
     }
 
     public function showall()
     {
         // get results with pagination and add cast
-        $page_films =  Film::paginate(2);
+        $page_films =  Film::paginate(5);
         $films = array();
         foreach($page_films as $film)
          {

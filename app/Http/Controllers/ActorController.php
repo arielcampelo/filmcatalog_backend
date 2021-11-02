@@ -21,7 +21,7 @@ class ActorController extends Controller
     public function index()
     {
         //
-        $actors = Actor::paginate(5);
+        $actors = Actor::paginate(100);
         return ActorResource::collection($actors);
     }
 
