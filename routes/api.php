@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,43 +18,57 @@ use App\Http\Controllers\ActorController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
-// List films
-Route::get('films', [FilmController::class, 'index']);
+// register user
+Route::post('register', [AuthController::class, 'register']);
+// login
+Route::post('login', [AuthController::class, 'login']);
+Route::middleware('auth:sanctum')->group(function(){
+    // get auth user
+    Route::get('user', [AuthController::class, 'user']);
 
-// List all films with actors
-Route::get('filmswithcast', [FilmController::class, 'showall']);
+    // logout
+    Route::post('logout', [AuthController::class, 'logout']);
 
-// List single film
-Route::get('film/{id}', [FilmController::class, 'show']);
+    // List films
+    Route::get('films', [FilmController::class, 'index']);
 
-// Create new film
-Route::post('film', [FilmController::class, 'store']);
+    // List all films with actors
+    Route::get('filmswithcast', [FilmController::class, 'showall']);
 
-// Update film
-Route::put('film/{id}', [FilmController::class, 'update']);
+    // List single film
+    Route::get('film/{id}', [FilmController::class, 'show']);
 
-// Delete film
-Route::delete('film/{id}', [FilmController::class,'destroy']);
+    // Create new film
+    Route::post('film', [FilmController::class, 'store']);
 
-/* --------------------------------------------------------*/
-// List actors
-Route::get('actors', [ActorController::class, 'index']);
+    // Update film
+    Route::put('film/{id}', [FilmController::class, 'update']);
 
-// List single actor
-Route::get('actor/{id}', [ActorController::class, 'show']);
+    // Delete film
+    Route::delete('film/{id}', [FilmController::class,'destroy']);
 
-// List actors by film_id
-Route::get('filmactors/{id}', [ActorController::class, 'showactors']);
+    /* --------------------------------------------------------*/
+    // List actors
+    Route::get('actors', [ActorController::class, 'index']);
 
-// Create new actor
-Route::post('actor', [ActorController::class, 'store']);
+    // List single actor
+    Route::get('actor/{id}', [ActorController::class, 'show']);
 
-// Update actor
-Route::put('actor/{id}', [ActorController::class, 'update']);
+    // List actors by film_id
+    Route::get('filmactors/{id}', [ActorController::class, 'showactors']);
 
-// Delete actor
-Route::delete('actor/{id}', [ActorController::class,'destroy']);
+    // Create new actor
+    Route::post('actor', [ActorController::class, 'store']);
+
+    // Update actor
+    Route::put('actor/{id}', [ActorController::class, 'update']);
+
+    // Delete actor
+    Route::delete('actor/{id}', [ActorController::class,'destroy']);
+
+    });
+
+
+
+
