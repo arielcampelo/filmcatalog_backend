@@ -21,9 +21,14 @@ use App\Http\Controllers\AuthController;
 
 // register user
 Route::post('register', [AuthController::class, 'register']);
+
 // login
 Route::post('login', [AuthController::class, 'login']);
+
+
+// middleware
 Route::middleware('auth:sanctum')->group(function(){
+
     // get auth user
     Route::get('user', [AuthController::class, 'user']);
 
